@@ -1,0 +1,17 @@
+versions:
+- version: CIRRUS_RESOURCE_CONFIG_001
+  dependencies:
+    - TEST
+  upgrade:
+    action: user-specified
+    order:
+  rollback:
+    action: default
+  notify:
+    action: user-specified
+    channel : alert-manager
+    rules:
+    - status: success
+      alarmType: notify
+    - status: failure
+      alarmType: critical
